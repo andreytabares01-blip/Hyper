@@ -56,7 +56,7 @@ public class ClienteRestController {
         if (result.hasErrors()) {
             return ResponseEntity.badRequest().body(construirErrores(result));
         }
-        return ResponseEntity.ok(clienteService.update(id, cliente));
+        return ResponseEntity.status(HttpStatus.CREATED).body(clienteService.update(id, cliente));
     }
 
     @DeleteMapping("/clientes/{id}")
